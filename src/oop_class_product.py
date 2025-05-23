@@ -10,22 +10,8 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-    @property
-    def price(self):
-        return self.__price
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-    @price.setter
-    def price(self, price):
-        if price > 0:
-            self.__price = price
-        elif price <= 0:
-            raise ValueError("Цена не должна быть нулевая или отрицательная")
-
-    @classmethod
-    def new_product(cls, new_product):
-        name = new_product["name"]
-        description = new_product["description"]
-        price = new_product["price"]
-        quantity = new_product["quantity"]
-
-        return cls(name, description, price, quantity)
+    def __add__(self, other):
+        return self.__price * self.quantity + other.__price * other.quantity
