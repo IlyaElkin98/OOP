@@ -7,11 +7,11 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.__price = price
+        self.price = price
         self.quantity = quantity
 
     def __str__(self):
-        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.__price * other.quantity
+        return self.price * self.quantity + other.price * other.quantity
