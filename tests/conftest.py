@@ -1,5 +1,3 @@
-from idlelib.run import fixdoc
-
 import pytest
 
 from src.oop_class_category import Category
@@ -33,26 +31,17 @@ def product_3():
         quantity=14,
     )
 
+@pytest.fixture
+def sum_1(product_1, product_2):
+    return 2580000.0
 
 @pytest.fixture
-def product_4():
-    return Product(
-        name='55" QLED 4K',
-        description="Фоновая подсветка",
-        price=123000.0,
-        quantity=7,
-    )
-
+def sum_2(product_1, product_3):
+    return 1334000.0
 
 @pytest.fixture
-def new_product():
-    return Product(
-        name="Samsung Galaxy S23 Ultra",
-        description="256GB, Серый цвет, 200MP камера",
-        price=180000.0,
-        quantity=5,
-    )
-
+def sum_3(product_2, product_3):
+    return 2114000.0
 
 # Фикстуры для class Category
 @pytest.fixture
