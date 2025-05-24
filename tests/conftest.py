@@ -43,12 +43,12 @@ def sum_2(product_1, product_3):
 def sum_3(product_2, product_3):
     return 2114000.0
 
-# # Фикстуры для class Category
-# @pytest.fixture
-# def category_1(product_1, product_2, product_3):
-#     return Category(
-#         name="Смартфоны",
-#         description="Смартфоны, как средство не только коммуникации, "
-#         "но и получения дополнительных функций для удобства жизни",
-#         products=[product_1, product_2, product_3],
-#     )
+# Фикстуры для class Category
+@pytest.fixture
+def category_1(product_1, product_2, product_3):
+    return Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, "
+        "но и получения дополнительных функций для удобства жизни",
+        products=[product_1, product_2, product_3],
+    )
