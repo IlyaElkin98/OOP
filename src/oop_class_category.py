@@ -1,3 +1,6 @@
+from itertools import product
+
+
 class Category:
     name: str
     description: str
@@ -12,14 +15,10 @@ class Category:
         Category.product_count += len(products) if products else 0
         Category.category_count += 1
 
-    def add_product(self, product):
-        if isinstance(product, Category):
-            self.__products.append(product)
-            Category.product_count += 1
+    def __str__(self):
+        total_count_products = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {total_count_products} шт."
 
     @property
     def products(self):
-        products_str = ""
-        for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
-        return products_str
+        return "// ". join(str(product) for product in self.__products)
