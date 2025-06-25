@@ -1,4 +1,24 @@
-class Product:
+from abc import ABC, abstractmethod
+
+
+class BaseProduct(ABC):
+
+    @abstractmethod
+    def __add__(self, other):
+        """Метод сложения цены и количества определенного продукта"""
+        pass
+
+
+class MixinPrint:
+    def __init__(self, *args, **kwargs) -> None:
+        print(repr(self))
+
+    def __repr__(self):
+        """метод возвращающий человечное представление экземпляра класса (конкретного продукта)"""
+        return f"Название продукта: {self.name}, Описание продукта: {self.description}, Цена: {self.price}, Остаток: {self.quantity}"
+
+
+class Product(BaseProduct, MixinPrint):
     name: str
     description: str
     price: float
@@ -9,6 +29,10 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
+        super().__init__()
+
+    def __add__(self, other):
+        pass
 
 
 class Smartphone(Product):
