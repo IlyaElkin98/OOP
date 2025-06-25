@@ -1,28 +1,52 @@
 import pytest
 
 
-def test_product(product_1, product_2, product_3):
-    assert product_1.name == "Samsung Galaxy S23 Ultra"
-    assert product_1.description == "256GB, Серый цвет, 200MP камера"
-    assert product_1.price == 180000.0
-    assert product_1.quantity == 5
+def test_product(smph1, smph2, smph3, gls1, gls2):
+    assert smph1.name == "Samsung Galaxy S23 Ultra"
+    assert smph1.description == "256GB, Серый цвет, 200MP камера"
+    assert smph1.price == 180000.0
+    assert smph1.quantity == 5
+    assert smph1.efficiency == 95.5
+    assert smph1.model == "S23 Ultra"
+    assert smph1.memory == 256
+    assert smph1.color == "Серый"
 
-    assert product_2.name == "Iphone 15"
-    assert product_2.description == "512GB, Gray space"
-    assert product_2.price == 210000.0
-    assert product_2.quantity == 8
+    assert smph2.name == "Iphone 15"
+    assert smph2.description == "512GB, Gray space"
+    assert smph2.price == 210000.0
+    assert smph2.quantity == 8
+    assert smph2.efficiency == 98.2
+    assert smph2.model == "15"
+    assert smph2.memory == 512
+    assert smph2.color == "Gray space"
 
-    assert product_3.name == "Xiaomi Redmi Note 11"
-    assert product_3.description == "1024GB, Синий"
-    assert product_3.price == 31000.0
-    assert product_3.quantity == 14
+    assert smph3.name == "Xiaomi Redmi Note 11"
+    assert smph3.description == "1024GB, Синий"
+    assert smph3.price == 31000.0
+    assert smph3.quantity == 14
+    assert smph3.efficiency == 90.3
+    assert smph3.model == "Note 11"
+    assert smph3.memory == 1024
+    assert smph3.color == "Синий"
 
-def test_str_product(product_1, product_2, product_3):
-    assert f"{product_1.name}, {product_1.price} руб. Остаток: {product_1.quantity} шт." == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
-    assert f"{product_2.name}, {product_2.price} руб. Остаток: {product_2.quantity} шт." == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
-    assert f"{product_3.name}, {product_3.price} руб. Остаток: {product_3.quantity} шт." == "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."
+    assert gls1.name == "Газонная трава"
+    assert gls1.description == "Элитная трава для газона"
+    assert gls1.price == 500.0
+    assert gls1.quantity == 20
+    assert gls1.country == "Россия"
+    assert gls1.germination_period == "7 дней"
+    assert gls1.color == "Зеленый"
 
-def test_add(product_1, product_2, product_3, sum_1, sum_2, sum_3):
-    assert sum_1 == 2580000.0
-    assert sum_2 == 1334000.0
-    assert sum_3 == 2114000.0
+    assert gls2.name == "Газонная трава 2"
+    assert gls2.description == "Выносливая трава"
+    assert gls2.price == 450.0
+    assert gls2.quantity == 15
+    assert gls2.country == "США"
+    assert gls2.germination_period == "5 дней"
+    assert gls2.color == "Темно-зеленый"
+
+
+def test_add(sum_smph_1, sum_gls_1, sum_type_error):
+    assert sum_smph_1 == 2580000.0
+    assert sum_gls_1 == 16750.0
+    assert sum_type_error == "Возникла ошибка TypeError при попытке сложения"
