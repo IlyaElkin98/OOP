@@ -1,3 +1,7 @@
+import pytest
+import src.category
+
+
 def test_category(category_smph, category_gls):
     assert category_smph.name == "Смартфоны"
     assert category_smph.description == "Высокотехнологичные смартфоны"

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class BaseProduct(ABC):
 
     @abstractmethod
@@ -30,7 +31,7 @@ class Product(BaseProduct, MixinPrint):
         if quantity != 0:
             self.quantity = quantity
         else:
-            raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __add__(self, other):
