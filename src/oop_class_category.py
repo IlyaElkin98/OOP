@@ -15,18 +15,10 @@ class Category:
         Category.product_count += len(products) if products else 0
         Category.category_count += 1
 
-    @property
-    def products(self):
-        products_info = []
-        for product in self.__products:
-            products_info.append(
-                f"{product.name}, {product.price} руб., Остаток: {product.quantity} шт."
-            )
-        return "\n".join(products_info)
+    def middle_price(self):
+        """Метод подчёта среднего ценника"""
+        try:
+            return round(sum(product.price for product in self.__products)/len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0
 
-    def add_product(self, product: Product):
-        if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
-        else:
-            raise TypeError
