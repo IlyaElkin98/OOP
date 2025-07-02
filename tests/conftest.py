@@ -1,7 +1,7 @@
 import pytest
 
-from src.oop_class_category import Category
-from src.oop_class_product import Product, Smartphone, LawnGrass
+from src.category import Category
+from src.product import Product, Smartphone, LawnGrass
 
 
 # Фикстуры для class Product

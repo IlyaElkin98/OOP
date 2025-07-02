@@ -1,6 +1,3 @@
-import pytest
-
-
 def test_product(smph1, smph2, smph3, gls1, gls2):
     assert smph1.name == "Samsung Galaxy S23 Ultra"
     assert smph1.description == "256GB, Серый цвет, 200MP камера"
